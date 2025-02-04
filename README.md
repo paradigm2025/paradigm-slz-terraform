@@ -1,1 +1,1 @@
-readme file
+readme file for paradigm slz
