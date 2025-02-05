@@ -13,23 +13,23 @@ env:
   TERRAFOROM_VERSION: '1.10.5'
 
 jobs:
-  boostrap:
+  bootstrap:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
     env: 
       ORG_ROOT: "paradigm"
-      INFRA_DIRECTORY: "0-boostrap"
-      TF_DIRECTORY: "slz/infra/0-boostrap"
-      ENVIRONMENT: "boostrap"
-      FILTER_ONE: '0-boostrap/**'
+      INFRA_DIRECTORY: "0-bootstrap"
+      TF_DIRECTORY: "slz/infra/0-bootstrap"
+      ENVIRONMENT: "bootstrap"
+      FILTER_ONE: '0-bootstrap/**'
        
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Initialize boostrap creation
+      - name: Initialize bootstrap creation
         uses: ./.github/plans/tf-plan
         id: plan
         with:
