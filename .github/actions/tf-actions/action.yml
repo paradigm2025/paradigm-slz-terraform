@@ -23,6 +23,9 @@ inputs:
   gcs_bucket: 
     description: 'Bucket to store terraform state files'
     required: true
+  terraform_backend_prefix:
+    description: 'Terraform backend prefix'
+    required: true
   
 
 runs:
@@ -57,12 +60,12 @@ runs:
 
            echo "Setting up Backend" && \
            TF_BACKEND_BUCKET=$( echo "${{ inputs.gcs_bucket }}"  )
-           TF_BACKEND_PREFIX=$( echo "${{ inputs.org_root }}/${{ inputs.tf_directory }}" )
+           TF_BACKEND_PREFIX=$( echo "${{ inputs.org_root }}/${{ inputs.terraform_backend_prefix }}" )
 
            echo $TF_BACKEND_BUCKET && \
            echo $TF_BACKEND_PREFIX
 
-           terraform  init -backend-config="bucket=${{ inputs.gcs_bucket }}" -backend-config="prefix=${{ inputs.org_root }}/${{ inputs.tf_directory }}"
+           terraform  init -backend-config="bucket=${{ inputs.gcs_bucket }}" -backend-config="prefix=${{ inputs.org_root }}/${{ inputs.terraform_backend_prefix }}"
 
     - name: Terraform Format
       id: fmt
