@@ -1,0 +1,216 @@
+name: Paradigm-Infra-Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:  
+
+env:
+  TF_LOG: WARN
+  WIF_PROVIDER: "projects/798574386650/locations/global/workloadIdentityPools/paradigm-gh-pool/providers/paradigm-gh-provider"
+  TF_SA: "org-terraform@prj-paradigm-seed-527f.iam.gserviceaccount.com"
+  GCS_BUCKET: "bootstrap-tfstate-deb5"
+  TERRAFOROM_VERSION: '1.10.5'
+
+jobs:
+  0-boostrap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    env: 
+      ORG_ROOT: "paradigm"
+      INFRA_DIRECTORY: "0-boostrap"
+      TF_DIRECTORY: "slz/infra/0-boostrap"
+      ENVIRONMENT: "boostrap"
+      FILTER_ONE: '0-boostrap/**'
+       
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize boostrap creation
+        uses: ./.github/plans/tf-plan
+        id: plan
+        with:
+          wif_provider: ${{ env.WIF_PROVIDER }}
+          tf_sa: ${{ env.TF_SA }}
+          gcs_bucket: ${{ env.GCS_BUCKET }}
+          infra_directory: ${{ env.INFRA_DIRECTORY }}
+          filter_one: ${{ env.FILTER_ONE }}
+          tf_directory: ${{ env.TF_DIRECTORY }}
+          environment: ${{ env.ENVIRONMENT }}
+          org_root: ${{ env.ORG_ROOT }}
+          terraform_version: ${{ env.TERRAFOROM_VERSION }}
+
+      - name: Display Terraform Plan
+        id: display_plan
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+              if [[ -f "tf.plan" ]];
+              then
+                terraform show tf.plan 
+              else
+                echo "No Plan Generated"
+              fi
+
+      - name: Perform Terraform Apply
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+             if [[ -f "tf.plan" ]];
+             then
+               terraform apply tf.plan
+             else
+               echo "No Plan Generated"
+             fi
+  
+  1-oidc:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    env: 
+      ORG_ROOT: "paradigm"
+      INFRA_DIRECTORY: "1-oidc"
+      TF_DIRECTORY: "slz/infra/1-oidc"
+      ENVIRONMENT: "oidc"
+      FILTER_ONE: '1-oidc/**'
+       
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize oidc creation
+        uses: ./.github/plans/tf-plan
+        id: plan
+        with:
+          wif_provider: ${{ env.WIF_PROVIDER }}
+          tf_sa: ${{ env.TF_SA }}
+          gcs_bucket: ${{ env.GCS_BUCKET }}
+          infra_directory: ${{ env.INFRA_DIRECTORY }}
+          filter_one: ${{ env.FILTER_ONE }}
+          tf_directory: ${{ env.TF_DIRECTORY }}
+          environment: ${{ env.ENVIRONMENT }}
+          org_root: ${{ env.ORG_ROOT }}
+          terraform_version: ${{ env.TERRAFOROM_VERSION }}
+
+      - name: Display Terraform Plan
+        id: display_plan
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+              if [[ -f "tf.plan" ]];
+              then
+                terraform show tf.plan 
+              else
+                echo "No Plan Generated"
+              fi
+
+      - name: Perform Terraform Apply
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+             if [[ -f "tf.plan" ]];
+             then
+               terraform apply tf.plan
+             else
+               echo "No Plan Generated"
+             fi
+  2-org-policies:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    env: 
+      ORG_ROOT: "paradigm"
+      INFRA_DIRECTORY: "2-org-policies"
+      TF_DIRECTORY: "slz/infra/2-org-policies"
+      ENVIRONMENT: "org-policies"
+      FILTER_ONE: '2-org-policies/**'
+       
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize org-policies creation
+        uses: ./.github/plans/tf-plan
+        id: plan
+        with:
+          wif_provider: ${{ env.WIF_PROVIDER }}
+          tf_sa: ${{ env.TF_SA }}
+          gcs_bucket: ${{ env.GCS_BUCKET }}
+          infra_directory: ${{ env.INFRA_DIRECTORY }}
+          filter_one: ${{ env.FILTER_ONE }}
+          tf_directory: ${{ env.TF_DIRECTORY }}
+          environment: ${{ env.ENVIRONMENT }}
+          org_root: ${{ env.ORG_ROOT }}
+          terraform_version: ${{ env.TERRAFOROM_VERSION }}
+
+      - name: Display Terraform Plan
+        id: display_plan
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+              if [[ -f "tf.plan" ]];
+              then
+                terraform show tf.plan 
+              else
+                echo "No Plan Generated"
+              fi
+
+      - name: Perform Terraform Apply
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+             if [[ -f "tf.plan" ]];
+             then
+               terraform apply tf.plan
+             else
+               echo "No Plan Generated"
+             fi
+  4-secure-landing-zone:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    env: 
+      ORG_ROOT: "paradigm"
+      INFRA_DIRECTORY: "4-secure-landing-zone"
+      TF_DIRECTORY: "slz/infra/4-secure-landing-zone"
+      ENVIRONMENT: "secure-landing-zone"
+      FILTER_ONE: '4-secure-landing-zone/**'
+       
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize secure-landing-zone creation
+        uses: ./.github/plans/tf-plan
+        id: plan
+        with:
+          wif_provider: ${{ env.WIF_PROVIDER }}
+          tf_sa: ${{ env.TF_SA }}
+          gcs_bucket: ${{ env.GCS_BUCKET }}
+          infra_directory: ${{ env.INFRA_DIRECTORY }}
+          filter_one: ${{ env.FILTER_ONE }}
+          tf_directory: ${{ env.TF_DIRECTORY }}
+          environment: ${{ env.ENVIRONMENT }}
+          org_root: ${{ env.ORG_ROOT }}
+          terraform_version: ${{ env.TERRAFOROM_VERSION }}
+
+      - name: Display Terraform Plan
+        id: display_plan
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+              if [[ -f "tf.plan" ]];
+              then
+                terraform show tf.plan 
+              else
+                echo "No Plan Generated"
+              fi
+
+      - name: Perform Terraform Apply
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+             if [[ -f "tf.plan" ]];
+             then
+               terraform apply tf.plan
+             else
+               echo "No Plan Generated"
+             fi
