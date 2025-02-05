@@ -1,0 +1,8 @@
+project_id               = "prj-paradigm-seed-527f"
+pool_id                  = "paradigm-gh-pool"
+provider_id              = "paradigm-gh-provider"
+issuer_uri               = "https://token.actions.githubusercontent.com"
+sa_account_id            = "projects/prj-paradigm-seed-527f/serviceAccounts/org-terraform@prj-paradigm-seed-527f.iam.gserviceaccount.com"
+sa_account_name          = "projects/prj-paradigm-seed-527f/serviceAccounts/org-terraform@prj-paradigm-seed-527f.iam.gserviceaccount.com"
+attribute                = "attribute.repository/paradigm2025/paradigm-slz-terraform"
+attribute_condition      = "assertion.repository_owner==\"paradigm2025\""
