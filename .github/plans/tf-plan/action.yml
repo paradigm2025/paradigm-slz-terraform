@@ -1,0 +1,58 @@
+name: 'Checks terraform code changes'
+description: 'Checks for the changes in the terraform code'
+inputs:
+  tf_directory: 
+    description: 'where to execute terraform'
+    required: true
+  infra_directory: 
+    description: 'infra directory'
+    required: required
+  org_root: 
+    description: 'root folder name'
+    required: true
+  environment: 
+    description: 'mention the environment'
+    required: true
+  wif_provider: 
+    description: 'Workload Identity Federation provider'
+    required: false
+  tf_sa: 
+    description: 'GCP service account for Terraform'
+    required: false
+  terraform_version: 
+    description: 'GCP Terraform Version'
+    required: true
+    default: 1.10.5
+  gcs_bucket: 
+    description: 'Bucket to store terraform state files'
+    required: false
+  filter_one: 
+    description: "First path directory whose changes needs to be monitored"
+    required: true
+
+
+runs:
+  using: "composite"
+  steps:
+    - uses: dorny/paths-filter@v3
+      id: changes
+      with:
+        base: ${{ github.ref }}
+        filters: |
+          verify_changes:
+            - ${{ inputs.filter_one }}
+
+
+    - name: Terraform before Apply
+      if: ${{ steps.changes.outputs.verify_changes == 'true' }}
+      uses: ./.github/actions/tf-actions
+      id: plan
+      with:
+        infra_directory: ${{ inputs.infra_directory }}
+        tf_directory: ${{ inputs.tf_directory }}
+        org_root: ${{ inputs.org_root }}
+        environment: ${{ inputs.environment }}
+        terraform_version: ${{ inputs.terraform_version }}
+        wif_provider: ${{ inputs.wif_provider }} 
+        tf_sa: ${{ inputs.tf_sa }}
+        gcs_bucket: ${{ inputs.gcs_bucket }}
