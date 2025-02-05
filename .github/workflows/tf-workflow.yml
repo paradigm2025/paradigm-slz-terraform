@@ -13,7 +13,7 @@ env:
   TERRAFOROM_VERSION: '1.10.5'
 
 jobs:
-  0-boostrap:
+  boostrap:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -64,7 +64,7 @@ jobs:
                echo "No Plan Generated"
              fi
   
-  1-oidc:
+  oidc:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -114,7 +114,7 @@ jobs:
              else
                echo "No Plan Generated"
              fi
-  2-org-policies:
+  org-policies:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -164,7 +164,7 @@ jobs:
              else
                echo "No Plan Generated"
              fi
-  4-secure-landing-zone:
+  secure-landing-zone:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
