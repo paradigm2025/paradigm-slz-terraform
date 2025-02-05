@@ -27,7 +27,10 @@ inputs:
     description: 'Bucket to store terraform state files'
     required: false
   filter_one: 
-    description: "First path directory whose changes needs to be monitored"
+    description: 'First path directory whose changes needs to be monitored'
+    required: true
+  terraform_backend_prefix:
+    description: 'Terraform backend prefix'
     required: true
 
 
@@ -56,3 +59,4 @@ runs:
         wif_provider: ${{ inputs.wif_provider }} 
         tf_sa: ${{ inputs.tf_sa }}
         gcs_bucket: ${{ inputs.gcs_bucket }}
+        terraform_backend_prefix: ${{ inputs.terraform_backend_prefix }}
