@@ -26,7 +26,7 @@ activate_apis                                     = [
   "securitycenter.googleapis.com",
   "accesscontextmanager.googleapis.com",
   "billingbudgets.googleapis.com",
-  //"essentialcontacts.googleapis.com"
+  "essentialcontacts.googleapis.com"
 ]
 create_terraform_sa                                  = true
 project_id                                           = "prj-paradigm-seed"
