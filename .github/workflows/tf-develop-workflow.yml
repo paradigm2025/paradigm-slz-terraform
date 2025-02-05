@@ -55,16 +55,6 @@ jobs:
               else
                 echo "No Plan Generated"
               fi
-
-      - name: Perform Terraform Apply
-        working-directory: ${{ env.INFRA_DIRECTORY }}
-        run: |
-             if [[ -f "tf.plan" ]];
-             then
-               terraform apply tf.plan
-             else
-               echo "No Plan Generated"
-             fi
   
   oidc:
     runs-on: ubuntu-latest
@@ -109,15 +99,6 @@ jobs:
                 echo "No Plan Generated"
               fi
 
-      - name: Perform Terraform Apply
-        working-directory: ${{ env.INFRA_DIRECTORY }}
-        run: |
-             if [[ -f "tf.plan" ]];
-             then
-               terraform apply tf.plan
-             else
-               echo "No Plan Generated"
-             fi
   org-policies:
     runs-on: ubuntu-latest
     permissions:
@@ -161,15 +142,6 @@ jobs:
                 echo "No Plan Generated"
               fi
 
-      - name: Perform Terraform Apply
-        working-directory: ${{ env.INFRA_DIRECTORY }}
-        run: |
-             if [[ -f "tf.plan" ]];
-             then
-               terraform apply tf.plan
-             else
-               echo "No Plan Generated"
-             fi
   secure-landing-zone:
     runs-on: ubuntu-latest
     permissions:
@@ -212,13 +184,3 @@ jobs:
               else
                 echo "No Plan Generated"
               fi
-
-      - name: Perform Terraform Apply
-        working-directory: ${{ env.INFRA_DIRECTORY }}
-        run: |
-             if [[ -f "tf.plan" ]];
-             then
-               terraform apply tf.plan
-             else
-               echo "No Plan Generated"
-             fi
