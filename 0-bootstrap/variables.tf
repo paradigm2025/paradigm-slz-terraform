@@ -1,7 +1,6 @@
 variable "org" {
   description = "The resource name of the parent Organization. Must be of the form organizations/org_id."
   type        = string
-  default     = "organizations/501532389770"
 }
 
 variable "folder_name" {
@@ -13,13 +12,11 @@ variable "folder_name" {
 variable "organization_id" {
   description = "The resource name of the parent Organization. Must be of the form organizations/org_id."
   type        = string
-  default     = "501532389770"
 }
 
 variable "billing_account_id" {
   description = "The ID of the billing account to associate projects with."
   type        = string
-  default     = "012BCD-645CF4-0A318B"
 }
 
 variable "group_org_admins" {
@@ -115,11 +112,9 @@ variable "storage_bucket_labels" {
 variable "tf_service_account_id" {
   description = "ID of service account for terraform in seed project"
   type        = string
-  default     = "org-terraform"
 }
 
 variable "tf_service_account_name" {
   description = "Display name of service account for terraform in seed project"
   type        = string
-  default     = "CFT Organization Terraform Account"
 }
