@@ -177,11 +177,11 @@ jobs:
       id-token: 'write'
     env: 
       ORG_ROOT: "paradigm"
-      INFRA_DIRECTORY: "4-secure-landing-zone"
-      TF_DIRECTORY: "4-secure-landing-zone/secure-landing-zone"
+      INFRA_DIRECTORY: "3-secure-landing-zone"
+      TF_DIRECTORY: "3-secure-landing-zone/secure-landing-zone"
       ENVIRONMENT: "secure-landing-zone"
-      TERRAFORM_BACKEND_PREFIX: "slz/infra/4-secure-landing-zone"
-      FILTER_ONE: '4-secure-landing-zone/**'
+      TERRAFORM_BACKEND_PREFIX: "slz/infra/3-secure-landing-zone"
+      FILTER_ONE: '3-secure-landing-zone/**'
        
 
     steps:
