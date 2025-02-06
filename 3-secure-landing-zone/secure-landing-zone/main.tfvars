@@ -116,8 +116,8 @@ projects = {
     project_sa_name    = "portfolio-mgmt-sa"
     sa_role            = "roles/viewer"
   },
-   "prj-admin-prod" = {
-    project_name        = "prj-admin-prod"
+   "prj-admins-prod" = {
+    project_name        = "prj-admins-prod"
     disable_services_on_destroy  = false
     folder_id          = "folders/817510310297"
     activate_apis      = [
@@ -139,11 +139,11 @@ projects = {
     ]
     project_labels     = {
       env  = "prod"
-      proj = "admin"
+      proj = "admins"
     }
-    bucket_name        = "admin-bucket"
+    bucket_name        = "admins-bucket"
     bucket_location    = "US"
-    project_sa_name    = "admin-sa"
+    project_sa_name    = "admins-sa"
     sa_role            = "roles/viewer"
   }
 }
