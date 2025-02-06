@@ -30,7 +30,7 @@ projects = {
     project_name        = "prj-rd-dev"
     disable_services_on_destroy  = false
     folder_id          = "folders/45067345488"
-    activate_apis      = apis = [
+    activate_apis      = [
       "compute.googleapis.com",
       "artifactregistry.googleapis.com",
       "oslogin.googleapis.com",
@@ -60,7 +60,7 @@ projects = {
     project_name        = "prj-pm-dev"
     disable_services_on_destroy  = false
     folder_id          = "folders/828850709455"
-    activate_apis      = apis = [
+    activate_apis      = [
       "compute.googleapis.com",
       "artifactregistry.googleapis.com",
       "oslogin.googleapis.com",
@@ -90,7 +90,7 @@ projects = {
     project_name        = "prj-pm-prod"
     disable_services_on_destroy  = false
     folder_id          = "folders/828850709455"
-    activate_apis      = apis = [
+    activate_apis      = [
       "compute.googleapis.com",
       "artifactregistry.googleapis.com",
       "oslogin.googleapis.com",
@@ -120,7 +120,7 @@ projects = {
     project_name        = "prj-admin-prod"
     disable_services_on_destroy  = false
     folder_id          = "folders/817510310297"
-    activate_apis      = apis = [
+    activate_apis      = [
       "compute.googleapis.com",
       "artifactregistry.googleapis.com",
       "oslogin.googleapis.com",
