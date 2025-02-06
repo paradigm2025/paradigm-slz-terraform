@@ -51,9 +51,9 @@ projects = {
       env  = "dev"
       proj = "rd"
     }
-    bucket_name        = "rd-bucket"
+    bucket_name        = "research-and-development-bucket"
     bucket_location    = "US"
-    project_sa_name    = "rd-sa"
+    project_sa_name    = "research-and-development-sa"
     sa_role            = "roles/viewer"
   },
   "prj-pm-dev" = {
@@ -81,9 +81,9 @@ projects = {
       env  = "dev"
       proj = "pm"
     }
-    bucket_name        = "pm-bucket"
+    bucket_name        = "portfolio-mgmt-bucket"
     bucket_location    = "US"
-    project_sa_name    = "pm-sa"
+    project_sa_name    = "portfolio-mgmt-sa"
     sa_role            = "roles/viewer"
   },
    "prj-pm-prod" = {
@@ -111,9 +111,9 @@ projects = {
       env  = "prod"
       proj = "pm"
     }
-    bucket_name        = "pm-bucket"
+    bucket_name        = "portfolio-mgmt-bucket"
     bucket_location    = "US"
-    project_sa_name    = "pm-sa"
+    project_sa_name    = "portfolio-mgmt-sa"
     sa_role            = "roles/viewer"
   },
    "prj-admin-prod" = {
