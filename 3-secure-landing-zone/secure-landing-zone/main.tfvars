@@ -24,3 +24,126 @@ admin_sub_folders             = ["fldr-admin-prod"]
 
 billing_account = "01FDCB-EB1BB1-59378C"
 org_id          = "417981694507"
+
+projects = {
+  "prj-rd-dev" = {
+    project_name        = "prj-rd-dev"
+    disable_services_on_destroy  = false
+    folder_id          = "folders/45067345488"
+    activate_apis      = [
+      "compute.googleapis.com",
+      "artifactregistry.googleapis.com",
+      "oslogin.googleapis.com",
+      "servicenetworking.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "cloudidentity.googleapis.com",
+      "cloudshell.googleapis.com",
+      "endpoints.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "logging.googleapis.com",
+      "networkmanagement.googleapis.com",
+      "stackdriver.googleapis.com",
+      "storage-component.googleapis.com",
+      "vpcaccess.googleapis.com",
+    ]
+    project_labels     = {
+      env  = "dev"
+      proj = "rd"
+    }
+    bucket_name        = "rd-bucket"
+    bucket_location    = "US"
+    project_sa_name    = "rd-sa"
+    sa_role            = "roles/viewer"
+  },
+  "prj-pm-dev" = {
+    project_name        = "prj-pm-dev"
+    disable_services_on_destroy  = false
+    folder_id          = "folders/828850709455"
+    activate_apis      = [
+      "compute.googleapis.com",
+      "artifactregistry.googleapis.com",
+      "oslogin.googleapis.com",
+      "servicenetworking.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "cloudidentity.googleapis.com",
+      "cloudshell.googleapis.com",
+      "endpoints.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "logging.googleapis.com",
+      "networkmanagement.googleapis.com",
+      "stackdriver.googleapis.com",
+      "storage-component.googleapis.com",
+      "vpcaccess.googleapis.com",
+    ]
+    project_labels     = {
+      env  = "dev"
+      proj = "pm"
+    }
+    bucket_name        = "pm-bucket"
+    bucket_location    = "US"
+    project_sa_name    = "pm-sa"
+    sa_role            = "roles/viewer"
+  },
+   "prj-pm-prod" = {
+    project_name        = "prj-pm-prod"
+    disable_services_on_destroy  = false
+    folder_id          = "folders/828850709455"
+    activate_apis      = [
+      "compute.googleapis.com",
+      "artifactregistry.googleapis.com",
+      "oslogin.googleapis.com",
+      "servicenetworking.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "cloudidentity.googleapis.com",
+      "cloudshell.googleapis.com",
+      "endpoints.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "logging.googleapis.com",
+      "networkmanagement.googleapis.com",
+      "stackdriver.googleapis.com",
+      "storage-component.googleapis.com",
+      "vpcaccess.googleapis.com",
+    ]
+    project_labels     = {
+      env  = "prod"
+      proj = "pm"
+    }
+    bucket_name        = "pm-bucket"
+    bucket_location    = "US"
+    project_sa_name    = "pm-sa"
+    sa_role            = "roles/viewer"
+  },
+   "prj-admin-prod" = {
+    project_name        = "prj-admin-prod"
+    disable_services_on_destroy  = false
+    folder_id          = "folders/817510310297"
+    activate_apis      = [
+      "compute.googleapis.com",
+      "artifactregistry.googleapis.com",
+      "oslogin.googleapis.com",
+      "servicenetworking.googleapis.com",
+      "cloudbuild.googleapis.com",
+      "cloudidentity.googleapis.com",
+      "cloudshell.googleapis.com",
+      "endpoints.googleapis.com",
+      "iam.googleapis.com",
+      "iamcredentials.googleapis.com",
+      "logging.googleapis.com",
+      "networkmanagement.googleapis.com",
+      "stackdriver.googleapis.com",
+      "storage-component.googleapis.com",
+      "vpcaccess.googleapis.com",
+    ]
+    project_labels     = {
+      env  = "prod"
+      proj = "admin"
+    }
+    bucket_name        = "admin-bucket"
+    bucket_location    = "US"
+    project_sa_name    = "admin-sa"
+    sa_role            = "roles/viewer"
+  }
+}
