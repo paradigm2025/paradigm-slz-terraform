@@ -46,7 +46,7 @@ module "nonprod_host_project" {
   random_project_id         = false
   labels                    = var.nonprod_host_proj_labels
   apis                      = var.apis
-  folder_id                 = module.shared_services_sub_folders.folders_map["paradigm-ss-nonprod"].id
+  folder_id                 = module.shared_services_sub_folders.folders_map["fldr-paradigm-ss-nonprod"].id
   billing_account           = var.billing_account
   host_network              = var.nonprod_host_network
   customRules               = var.firewall_nonprod
@@ -62,7 +62,7 @@ module "prod_host_project" {
   random_project_id         = false
   labels                    = var.prod_host_proj_labels
   apis                      = var.apis
-  folder_id                 = module.shared_services_sub_folders.folders_map["paradigm-ss-prod"].id
+  folder_id                 = module.shared_services_sub_folders.folders_map["fldr-paradigm-ss-prod"].id
   billing_account           = var.billing_account
   host_network              = var.prod_host_network
   customRules               = var.firewall_prod
