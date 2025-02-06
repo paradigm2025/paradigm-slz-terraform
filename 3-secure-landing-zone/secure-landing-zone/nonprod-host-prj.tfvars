@@ -231,8 +231,7 @@ cloud_nat_prod = {
 }
 
 routes_nonprod = {
-
-route1 = {
+  route1 = {
     network_name = "projects/paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
     routes = [
       {
@@ -246,8 +245,7 @@ route1 = {
 }
 
 routes_prod = {
-
-route1 = {
+  route1 = {
     network_name = "projects/paradigm-ss-prod/global/networks/paradigm-vpc-prod"
     routes = [
       {
