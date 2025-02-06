@@ -76,17 +76,17 @@ module "projects" {
   version                      = "~> 14.3"
 
   for_each                     = var.projects
-  name                         = each.project_name
-  disable_services_on_destroy  = each.disable_services_on_destroy
-  folder_id                    = each.folder_id
+  name                         = each.value.project_name
+  disable_services_on_destroy  = each.value.disable_services_on_destroy
+  folder_id                    = each.value.folder_id
   org_id                       = var.org_id
   billing_account              = var.billing_account
-  project_id                   = each.project_name
-  activate_apis                = each.activate_apis
-  labels                       = each.project_labels
-  bucket_name                  = each.bucket_name
-  bucket_location              = each.bucket_location
-  project_sa_name              = each.project_sa_name
-  sa_role                      = each.sa_role
+  project_id                   = each.value.project_name
+  activate_apis                = each.value.activate_apis
+  labels                       = each.value.project_labels
+  bucket_name                  = each.value.bucket_name
+  bucket_location              = each.value.bucket_location
+  project_sa_name              = each.value.project_sa_name
+  sa_role                      = each.value.sa_role
 }
 
