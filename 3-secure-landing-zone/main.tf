@@ -70,3 +70,23 @@ module "prod_host_project" {
   cloud-nat                 = var.cloud_nat_prod 
   routes                    = var.routes_prod
 }
+
+module "projects" {
+  source                       = "terraform-google-modules/project-factory/google"
+  version                      = "~> 14.3"
+
+  for_each                     = var.projects
+  name                         = each.project_name
+  disable_services_on_destroy  = each.disable_services_on_destroy
+  folder_id                    = each.folder_id
+  org_id                       = var.org_id
+  billing_account              = var.billing_account
+  project_id                   = each.project_name
+  activate_apis                = each.activate_apis
+  labels                       = each.project_labels
+  bucket_name                  = each.bucket_name
+  bucket_location              = each.bucket_location
+  project_sa_name              = each.project_sa_name
+  sa_role                      = each.sa_role
+}
+

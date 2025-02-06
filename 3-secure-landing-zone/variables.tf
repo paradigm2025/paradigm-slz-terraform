@@ -153,3 +153,19 @@ variable "address" {
   description = "address"
   type        = any
 }
+
+variable "projects" {
+  description = "The projects."
+  type        = map(object({
+    project_name        = string
+    disable_services_on_destroy  = bool
+    folder_id          = string
+    activate_apis      = list(string)
+    project_labels     = map(any)
+    bucket_name        = string
+    bucket_location    = string
+    project_sa_name    = string
+    sa_role            = string
+  }))
+  default = {}
+}    
