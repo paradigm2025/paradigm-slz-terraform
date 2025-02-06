@@ -1,7 +1,7 @@
 folders = {
   shared = {
     org           = "organizations/417981694507"
-    folder_name   = ["fldr-paradigm-gcp-shared-services"]
+    folder_name   = ["fldr-paradigm-shared-services"]
   }
   rd = {
     org           = "organizations/417981694507"
