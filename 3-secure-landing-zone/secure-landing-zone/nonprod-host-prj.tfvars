@@ -1,8 +1,8 @@
 org_id     = "417981694507"
 
 projectName = {
-  nonprod_host = "paradigm-ss-nonprod",
-  prod_host    = "paradigm-ss-prod"
+  nonprod_host = "prj-paradigm-ss-nonprod",
+  prod_host    = "prj-paradigm-ss-prod"
 }
 
 nonprod_host_proj_labels = {
@@ -111,7 +111,7 @@ firewall_nonprod = {
   default-allow-internal = {
     description          = "Permits incoming connections to VM instances from other instances within the same VPC network"
     direction            = "INGRESS"
-    network_name         = "projects/paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
+    network_name         = "projects/prj-paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
     action               = "allow"
     ranges               = ["10.0.1.0/24","10.100.1.0/24"]
     sources              = []
@@ -128,7 +128,7 @@ firewall_nonprod = {
   gcp-iap-desktop = {
     description          = "GCP IAP Check Probes"
     direction            = "INGRESS"
-    network_name         = "projects/paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
+    network_name         = "projects/prj-paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
     action               = "allow"
     ranges               = ["35.235.240.0/20"]
     sources              = []
@@ -148,7 +148,7 @@ firewall_prod = {
   default-allow-internal = {
     description          = "Permits incoming connections to VM instances from other instances within the same VPC network"
     direction            = "INGRESS"
-    network_name         = "projects/paradigm-ss-prod/global/networks/paradigm-vpc-prod"
+    network_name         = "projects/prj-paradigm-ss-prod/global/networks/paradigm-vpc-prod"
     action               = "allow"
     ranges               = ["10.0.1.0/24","10.100.1.0/24"]
     sources              = []
@@ -165,7 +165,7 @@ firewall_prod = {
   gcp-iap-desktop = {
     description          = "GCP IAP Check Probes"
     direction            = "INGRESS"
-    network_name         = "projects/paradigm-ss-prod/global/networks/paradigm-vpc-prod"
+    network_name         = "projects/prj-paradigm-ss-prod/global/networks/paradigm-vpc-prod"
     action               = "allow"
     ranges               = ["35.235.240.0/20"]
     sources              = []
@@ -196,17 +196,17 @@ cloud_nat_nonprod = {
   gcp-nat-east1 = {
     nat_name     = "gcp-nat-useast1"
     nat_region   = "us-east1"
-    ip_address   = ["projects/paradigm-ss-nonprod/regions/us-east1/addresses/ext-ip-us-east1"]
+    ip_address   = ["projects/prj-paradigm-ss-nonprod/regions/us-east1/addresses/ext-ip-us-east1"]
     cloud_router = "gcp-nat-cr-useast1"
-    network_name = "projects/paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
+    network_name = "projects/prj-paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
     router_asn   = "64515"
   },
  gcp-nat-uscentral1 = {
     nat_name     = "gcp-nat-uscentral1"
     nat_region   = "us-central1"
-    ip_address   = ["projects/paradigm-ss-nonprod/regions/us-central1/addresses/ext-ip-us-central1"]
+    ip_address   = ["projects/prj-paradigm-ss-nonprod/regions/us-central1/addresses/ext-ip-us-central1"]
     cloud_router = "gcp-nat-cr-uscentral1"
-    network_name = "projects/paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
+    network_name = "projects/prj-paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
     router_asn   = "64516"
   }
 }
@@ -215,24 +215,24 @@ cloud_nat_prod = {
   gcp-nat-east1 = {
     nat_name     = "gcp-nat-useast1"
     nat_region   = "us-east1"
-    ip_address   = ["projects/paradigm-ss-prod/regions/us-east1/addresses/ext-ip-us-east1"]
+    ip_address   = ["projects/prj-paradigm-ss-prod/regions/us-east1/addresses/ext-ip-us-east1"]
     cloud_router = "gcp-nat-cr-useast1"
-    network_name = "projects/paradigm-ss-prod/global/networks/paradigm-vpc-prod"
+    network_name = "projects/prj-paradigm-ss-prod/global/networks/paradigm-vpc-prod"
     router_asn   = "64515"
   },
  gcp-nat-uscentral1 = {
     nat_name     = "gcp-nat-uscentral1"
     nat_region   = "us-central1"
-    ip_address   = ["projects/paradigm-ss-prod/regions/us-central1/addresses/ext-ip-us-central1"]
+    ip_address   = ["projects/prj-paradigm-ss-prod/regions/us-central1/addresses/ext-ip-us-central1"]
     cloud_router = "gcp-nat-cr-uscentral1"
-    network_name = "projects/paradigm-ss-prod/global/networks/paradigm-vpc-prod"
+    network_name = "projects/prj-paradigm-ss-prod/global/networks/paradigm-vpc-prod"
     router_asn   = "64516"
   }
 }
 
 routes_nonprod = {
   route1 = {
-    network_name = "projects/paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
+    network_name = "projects/prj-paradigm-ss-nonprod/global/networks/paradigm-vpc-nonprod"
     routes = [
       {
         name              = "gcp-cr-route1"
@@ -246,7 +246,7 @@ routes_nonprod = {
 
 routes_prod = {
   route1 = {
-    network_name = "projects/paradigm-ss-prod/global/networks/paradigm-vpc-prod"
+    network_name = "projects/prj-paradigm-ss-prod/global/networks/paradigm-vpc-prod"
     routes = [
       {
         name              = "gcp-cr-route1"
