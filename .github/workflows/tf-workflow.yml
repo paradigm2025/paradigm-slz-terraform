@@ -346,7 +346,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Initialize iam creation
+      - name: Initialize vpn creation
         uses: ./.github/plans/tf-plan
         id: plan
         with:
