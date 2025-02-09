@@ -328,3 +328,56 @@ jobs:
              else
                echo "No Plan Generated"
              fi
+
+  vpn:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    env: 
+      ORG_ROOT: "paradigm"
+      INFRA_DIRECTORY: "6-vpn"
+      TF_DIRECTORY: "6-vpn/vpn"
+      ENVIRONMENT: "vpn"
+      TERRAFORM_BACKEND_PREFIX: "slz/infra/6-vpn"
+      FILTER_ONE: '6-vpn/**'
+       
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize iam creation
+        uses: ./.github/plans/tf-plan
+        id: plan
+        with:
+          wif_provider: ${{ env.WIF_PROVIDER }}
+          tf_sa: ${{ env.TF_SA }}
+          gcs_bucket: ${{ env.GCS_BUCKET }}
+          infra_directory: ${{ env.INFRA_DIRECTORY }}
+          filter_one: ${{ env.FILTER_ONE }}
+          tf_directory: ${{ env.TF_DIRECTORY }}
+          environment: ${{ env.ENVIRONMENT }}
+          org_root: ${{ env.ORG_ROOT }}
+          terraform_version: ${{ env.TERRAFOROM_VERSION }}
+          terraform_backend_prefix: ${{ env.TERRAFORM_BACKEND_PREFIX }}
+
+      - name: Display Terraform Plan
+        id: display_plan
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+              if [[ -f "tf.plan" ]];
+              then
+                terraform show tf.plan 
+              else
+                echo "No Plan Generated"
+              fi
+
+      - name: Perform Terraform Apply
+        working-directory: ${{ env.INFRA_DIRECTORY }}
+        run: |
+             if [[ -f "tf.plan" ]];
+             then
+               terraform apply tf.plan
+             else
+               echo "No Plan Generated"
+             fi           
