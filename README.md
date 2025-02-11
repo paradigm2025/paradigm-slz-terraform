@@ -10,7 +10,6 @@ The repo consists of the follwing folders:
 - '3-secure-landing-zone' - Contains the terraform configuration required to setup the folders, projects and network.
 - '4-groups' - Contains the terraform configuration required to setup the gcp groups.
 - '5-iam' - Contains the terraform configuration required to setup the identity access management.
-- '6-vpn' - Contains the terraform configuration required to setup the vpn connection.
 
 ### Execution Steps:
 #### Pre_Requisites
